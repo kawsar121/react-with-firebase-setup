@@ -1,4 +1,4 @@
-import { GithubAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import { GithubAuthProvider, getAuth, signInWithPopup, signOut } from 'firebase/auth';
 import React from 'react';
 import app from '../../Firebase/firebase.init';
 
@@ -17,10 +17,32 @@ const Login = () => {
             })
     }
 
+    
+
+    const logoutMiya = ()=>{
+        signOut(auth)
+        .then(result =>{
+            console.log(result)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    }
+
 
     return (
         <div>
-            <button onClick={gittuMiya} className='bg-black text-white px-7 py-6 mx-5 my-4'>Github Login</button>
+           {
+             <>
+                user?
+             <button onClick={logoutMiya} className='bg-black text-white px-7 py-6 mx-5 my-4'>Logout</button>
+             
+             <button onClick={gittuMiya} className='bg-black text-white px-7 py-6 mx-5 my-4'>Github Login</button>
+             
+             </>
+           }
+            
+            
         </div>
     );
 };
